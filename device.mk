@@ -2,7 +2,6 @@
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
-$(call inherit-product, device/lenovo/P70/vendor/copyfiles.mk)
 $(call inherit-product, vendor/lenovo/P70/P70-vendor-blobs.mk)
 
 LOCAL_PATH := device/lenovo/P70
@@ -106,7 +105,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/enableswap.sh:root/enableswap.sh \
     $(LOCAL_PATH)/ramdisk/factory_init.rc:root/factory_init.rc \
     $(LOCAL_PATH)/ramdisk/fstab.mt6752:root/fstab.mt6752 \
-    $(LOCAL_PATH)/ramdisk/hfe.sh:root/hfe.sh \
     $(LOCAL_PATH)/ramdisk/init:root/init \
     $(LOCAL_PATH)/ramdisk/init.modem.rc:root/init.modem.rc \
     $(LOCAL_PATH)/ramdisk/init.mt6752.rc:root/init.mt6752.rc \
