@@ -46,17 +46,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/fmr/mt6627_fm_cust.cfg:system/etc/fmr/mt6627_fm_cust.cfg
 
-# MiraVision
-#PRODUCT_PACKAGES += \
-#    MiraVision
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/mtk/libmtkplayer/lib/libmtkplayer.so:system/lib/libmtkplayer.so \
     $(LOCAL_PATH)/mtk/libmtkplayer/lib64/libmtkplayer.so:system/lib64/libmtkplayer.so
-
-# init
-PRODUCT_PACKAGES += \
-    P70
 
 # gralloc
 PRODUCT_PACKAGES += \
