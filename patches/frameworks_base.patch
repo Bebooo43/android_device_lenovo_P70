@@ -161,6 +161,26 @@ index aafa07b..bea2ce8 100644
           * Audio source for preemptible, low-priority software hotword detection
           * It presents the same gain and pre processing tuning as {@link #VOICE_RECOGNITION}.
           * <p>
+diff --git a/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java b/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java
+index 352bfba..c45ea43 100755
+--- a/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java
++++ b/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java
+@@ -982,6 +982,7 @@ public class KeyguardViewMediator extends SystemUI {
+                    || (why == WindowManagerPolicy.OFF_BECAUSE_OF_USER && !lockImmediately)) {
+                 doKeyguardLaterLocked();
+             } else {
++                SystemClock.sleep(1000);
+                 doKeyguardLocked(null);
+             }
+         }
+@@ -1021,6 +1022,7 @@ public class KeyguardViewMediator extends SystemUI {
+         if (timeout <= 0) {
+             // Lock now
+             mSuppressNextLockSound = true;
++            SystemClock.sleep(1000);
+             doKeyguardLocked(null);
+         } else {
+             // Lock in the future
 diff --git a/packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java b/packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java
 index cd1a3d9..d951892 100644
 --- a/packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java

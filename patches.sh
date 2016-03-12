@@ -33,8 +33,17 @@ echo "${red}Не применён!${txtrst}"
 fi
 
 if
-echo "${grn}'CMUpdater.patch'${txtrst}"
-cat patches/CMUpdater.patch | patch -d $DSTDIR/packages/apps/CMUpdater/ -p1 -N -r -
+echo "${grn}'packages_apps_CMFileManager.patch'${txtrst}"
+cat patches/packages_apps_CMFileManager.patch | patch -d $DSTDIR/packages/apps/CMFileManager/ -p1 -N -r -
+then
+echo "${grn}Применён успешно!${txtrst}"
+else
+echo "${red}Не применён!${txtrst}"
+fi
+
+if
+echo "${grn}'packages_apps_CMUpdater.patch'${txtrst}"
+cat patches/packages_apps_CMUpdater.patch | patch -d $DSTDIR/packages/apps/CMUpdater/ -p1 -N -r -
 then
 echo "${grn}Применён успешно!${txtrst}"
 else
