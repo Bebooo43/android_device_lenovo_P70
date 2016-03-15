@@ -104,10 +104,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.project.rc:root/init.project.rc \
     $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
     $(LOCAL_PATH)/ramdisk/init.ssd.rc:root/init.ssd.rc \
-    $(LOCAL_PATH)/ramdisk/init.trace.rc:root/init.trace.rc \
     $(LOCAL_PATH)/ramdisk/ss:root/sbin/ss \
     $(LOCAL_PATH)/ramdisk/ueventd.mt6752.rc:root/ueventd.mt6752.rc \
-    $(LOCAL_PATH)/ramdisk/ueventd.rc:root/ueventd.rc
+    $(LOCAL_PATH)/ramdisk/init.mt6752.power.rc:root/init.mt6752.power.rc
 
 # Telecom
 PRODUCT_COPY_FILES += \
