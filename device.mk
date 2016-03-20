@@ -182,10 +182,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libifaddrs
 
-# Torch
-PRODUCT_PACKAGES += \
-    Torch
-
 # STk
 PRODUCT_PACKAGES += \
     Stk
