@@ -12,8 +12,8 @@
   <remove-project name="CyanogenMod/android_frameworks_opt_telephony" />
   <remove-project name="CyanogenMod/android_hardware_libhardware" />
   <!-- <remove-project name="CyanogenMod/android_hardware_libhardware_legacy" /> -->
-  <!-- <remove-project name="CyanogenMod/android_packages_services_Telecomm" /> -->
-  <!-- <remove-project name="CyanogenMod/android_packages_services_Telephony" /> -->
+  <remove-project name="CyanogenMod/android_packages_services_Telecomm" />
+  <remove-project name="CyanogenMod/android_packages_services_Telephony" />
 
   <!-- <remove-project name="CyanogenMod/android_bootable_recovery" /> -->
 
@@ -28,14 +28,15 @@
   <project path="frameworks/av" name="xen0n/android_frameworks_av_mtk" groups="pdk" />
   <project path="frameworks/base" name="xen0n/android_frameworks_base_mtk" />
   <!--   <project path="frameworks/native" name="xen0n/android_frameworks_native_mtk" groups="pdk" /> -->
-  <project path="frameworks/opt/telephony" name="nofearnohappy/android_frameworks_opt_telephony---FIX-USSD" groups="pdk" revision="master" />
+  <project path="frameworks/opt/telephony" name="xen0n/android_frameworks_opt_telephony_mtk" />
   <project path="hardware/libhardware" name="xen0n/android_hardware_libhardware_mtk" groups="pdk" />
   <!-- <project path="hardware/libhardware_legacy" name="xen0n/android_hardware_libhardware_legacy_mtk" groups="pdk" /> -->
-  <!-- <project path="packages/services/Telecomm" name="xen0n/android_packages_services_Telecomm_mtk" />  -->
-  <!-- <project path="packages/services/Telephony" name="xen0n/android_packages_services_Telephony_mtk" />  -->
+  <project path="packages/services/Telecomm" name="xen0n/android_packages_services_Telecomm_mtk" />
+  <project path="packages/services/Telephony" name="xen0n/android_packages_services_Telephony_mtk" />
   <!-- <project path="packages/apps/Snap" name="CyanogenMod/android_packages_apps_Snap" /> -->
   <!-- <project path="bootable/recovery" name="omnirom/android_bootable_recovery" revision="android-6.0" />  -->
   <project path="kernel/lenovo/P70" name="Vgdn1942/android_kernel_lenovo_P70" revision="master" />
+  <project path="packages/apps/FMRadio" name="CyanogenMod/android_packages_apps_FMRadio" />
   <!-- vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8: -->
 </manifest>
 

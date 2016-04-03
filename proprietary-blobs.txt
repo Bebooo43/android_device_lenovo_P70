@@ -86,14 +86,17 @@ bin/gsm0710muxd
 bin/gsm0710muxdmd2
 bin/mtkrild
 bin/mtkrildmd2
+bin/wpa_supplicant
 
 etc/bluetooth/auto_pair_blacklist.conf
 etc/bluetooth/auto_pair_devlist.conf
 etc/bluetooth/bt_did.conf
 etc/bluetooth/bt_stack.conf
 etc/bluetooth/btconfig.xml
+
 etc/clatd.conf
 etc/custom.conf
+
 etc/dhcpcd/dhcpcd-hooks/20-dns.conf
 etc/dhcpcd/dhcpcd-hooks/95-configured
 etc/dhcpcd/dhcpcd-run-hooks
@@ -122,7 +125,9 @@ etc/firmware/mt6627/mt6627_fm_v5_patch.bin
 
 etc/mtk_omx_core.cfg
 etc/mtklog-config.prop
+
 etc/radvd/radvd.conf
+
 etc/wifi/p2p_supplicant_overlay.conf
 etc/wifi/wpa_supplicant.conf
 etc/wifi/wpa_supplicant_overlay.conf
@@ -151,6 +156,8 @@ lib/librilmtk.so
 lib/librilmtk.so
 lib/mtk-ril.so
 lib/mtk-rilmd2.so
+lib/libfmcust.so
+lib/libfmmt6627.so
 lib/libJpgDecPipe.so
 lib/libJpgEncPipe.so
 lib/libMtkOmxCore.so
@@ -366,6 +373,9 @@ lib64/hw/sensors.mt6752.so
 lib64/libccci_util.so
 lib64/librilmtk.so
 lib64/librilmtkmd2.so
+lib64/libfmcust.so
+lib64/libfmmt6627.so
+lib64/libfmjni.so
 lib64/lib3a.so
 lib64/lib3a_sample.so
 lib64/libGdmaScalerPipe.so
@@ -545,5 +555,5 @@ vendor/lib/libwvdrm_L3.so
 vendor/lib/libwvm.so
 vendor/lib/mediadrm/libmockdrmcryptoplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
-vendor/lib64/mediadrm/libmockdrmcryptoplugin.so
 
+vendor/lib64/mediadrm/libmockdrmcryptoplugin.so
