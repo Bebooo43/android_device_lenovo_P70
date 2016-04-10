@@ -33,9 +33,9 @@ PRODUCT_PACKAGES += \
     libxlog
 
 # FM Radio
-PRODUCT_PACKAGES += \
-    FMRadio \
-    FmRadioTrampoline
+#PRODUCT_PACKAGES += \
+#    FMRadio \
+#    FmRadioTrampoline
 
 # FM Radio
 #PRODUCT_PACKAGES += \

@@ -6,7 +6,6 @@ DSTDIR=$1
 if [ -z "$DSTDIR" ]
 then
     echo "Используйте: $0 <папка с исходниками>"
-    exit 1
 fi
 
 red=$(tput setaf 1) # Red
