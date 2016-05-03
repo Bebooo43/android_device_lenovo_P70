@@ -32,6 +32,10 @@ TARGET_OTA_ASSERT_DEVICE := P70,P70-A,P70-T
 PRODUCT_PACKAGES += \
     libxlog
 
+# Gestures
+PRODUCT_PACKAGES += \
+    Gestures
+
 # FM Radio
 #PRODUCT_PACKAGES += \
 #    FMRadio \
