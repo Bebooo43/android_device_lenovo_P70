@@ -145,6 +145,37 @@ index 6ec1c9e..739424d 100755
      </string-array>
  
      <!-- Flag indicating whether the surface flinger has limited
+diff --git a/data/keyboards/Generic.kl b/data/keyboards/Generic.kl
+index f10ba96..bf4e759 100644
+--- a/data/keyboards/Generic.kl
++++ b/data/keyboards/Generic.kl
+@@ -158,7 +158,7 @@ key 128   MEDIA_STOP
+ # key 136 "KEY_FIND"
+ # key 137 "KEY_CUT"
+ # key 138 "KEY_HELP"
+-key 139   MENU
++key 139   MENU	VIRTUAL
+ key 140   CALCULATOR
+ # key 141 "KEY_SETUP"
+ key 142   SLEEP
+@@ -177,7 +177,7 @@ key 152   POWER
+ key 155   ENVELOPE
+ key 156   BOOKMARK
+ # key 157 "KEY_COMPUTER"
+-key 158   BACK
++key 158   BACK	VIRTUAL
+ key 159   FORWARD
+ key 160   MEDIA_CLOSE
+ key 161   MEDIA_EJECT
+@@ -191,7 +191,7 @@ key 168   MEDIA_REWIND
+ key 169   CALL
+ # key 170 "KEY_ISO"
+ key 171   MUSIC
+-key 172   HOME
++key 172   HOME	VIRTUAL
+ # key 173 "KEY_REFRESH"
+ # key 174 "KEY_EXIT"
+ # key 175 "KEY_MOVE"
 diff --git a/media/java/android/media/MediaRecorder.java b/media/java/android/media/MediaRecorder.java
 index aafa07b..bea2ce8 100644
 --- a/media/java/android/media/MediaRecorder.java
@@ -281,7 +312,7 @@ index cd1a3d9..d951892 100644
 +    }
  }
 diff --git a/policy/src/com/android/internal/policy/impl/PhoneWindowManager.java b/policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
-index f946bd3..7a53b3f 100644
+index 1ef905f..7a53b3f 100644
 --- a/policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
 +++ b/policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
 @@ -613,6 +613,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
@@ -316,6 +347,15 @@ index f946bd3..7a53b3f 100644
              mHomeWakeScreen = (Settings.System.getIntForUser(resolver,
                      Settings.System.HOME_WAKE_SCREEN, 1, UserHandle.USER_CURRENT) == 1) &&
                      ((mDeviceHardwareWakeKeys & KEY_MASK_HOME) != 0);
+@@ -5389,7 +5400,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
+         if (isValidGlobalKey(keyCode)
+                 && mGlobalKeyManager.shouldHandleGlobalKey(keyCode, event)) {
+             if (isWakeKey) {
+-                wakeUp(event.getEventTime(), mAllowTheaterModeWakeFromKey, true);
++                wakeUp(event.getEventTime(), mAllowTheaterModeWakeFromKey);
+             }
+             return result;
+         }
 @@ -5460,6 +5471,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                      TelecomManager telecomManager = getTelecommService();
                      if (telecomManager != null) {
@@ -328,7 +368,7 @@ index f946bd3..7a53b3f 100644
                              // If an incoming call is ringing, either VOLUME key means
                              // "silence ringer".  We handle these keys here, rather than
                              // in the InCallScreen, to make sure we'll respond to them
-@@ -5720,7 +5736,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
+@@ -5720,12 +5736,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
              }
          }
  
@@ -338,33 +378,12 @@ index f946bd3..7a53b3f 100644
              performHapticFeedbackLw(null, HapticFeedbackConstants.VIRTUAL_KEY, false);
          }
  
-@@ -6071,15 +6088,24 @@ public class PhoneWindowManager implements WindowManagerPolicy {
-     }
- 
-     private void wakeUpFromPowerKey(long eventTime) {
--        wakeUp(eventTime, mAllowTheaterModeWakeFromPowerKey);
-+        wakeUp(eventTime, mAllowTheaterModeWakeFromPowerKey, true);
-     }
- 
-     private boolean wakeUp(long wakeTime, boolean wakeInTheaterMode) {
-+        return wakeUp(wakeTime, wakeInTheaterMode, false);
-+    }
-+
-+    private boolean wakeUp(long wakeTime, boolean wakeInTheaterMode,
-+            boolean withProximityCheck) {
-         if (!wakeInTheaterMode && isTheaterModeEnabled()) {
-             return false;
+         if (isWakeKey) {
+-            wakeUp(event.getEventTime(), mAllowTheaterModeWakeFromKey, true);
++            wakeUp(event.getEventTime(), mAllowTheaterModeWakeFromKey);
          }
  
--        mPowerManager.wakeUp(wakeTime);
-+        if (withProximityCheck) {
-+            mPowerManager.wakeUpWithProximityCheck(wakeTime);
-+        } else {
-+            mPowerManager.wakeUp(wakeTime);
-+        }
-         return true;
-     }
- 
+         return result;
 diff --git a/services/core/java/com/android/server/BatteryService.java b/services/core/java/com/android/server/BatteryService.java
 index 32c828c..5657bfa 100644
 --- a/services/core/java/com/android/server/BatteryService.java

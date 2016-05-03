@@ -1,17 +1,17 @@
 diff --git a/res/values-ru/cm_strings.xml b/res/values-ru/cm_strings.xml
-index 7cd8964..659efbc 100644
+index 58726d6..ef25d4c 100644
 --- a/res/values-ru/cm_strings.xml
 +++ b/res/values-ru/cm_strings.xml
-@@ -141,6 +141,8 @@
+@@ -161,6 +161,8 @@
    <string name="button_wake_summary">Отключает управление плеером</string>
    <string name="home_answer_call_title">Ответ на звонок</string>
    <string name="home_answer_call_summary">Отвечать на звонок нажатием кнопки «Домой»</string>
 +  <string name="volume_answer_call_title">Ответ на звонок</string>
 +  <string name="volume_answer_call_summary">Отвечать на звонок нажатием кнопок громкости</string>
+   <!-- Key backlight -->
    <string name="button_backlight_title">Подсветка</string>
    <string name="button_backlight_enabled">Подсветка кнопок</string>
-   <string name="keyboard_backlight_enabled">Подсветка клавиатуры</string>
-@@ -995,4 +997,8 @@
+@@ -1214,4 +1216,8 @@
  <b>Всего коммитов:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
  <b>Последнее обновление:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
    <string name="quick_settings_reset_message">Сбросить настройки плиток?</string>
@@ -21,19 +21,19 @@ index 7cd8964..659efbc 100644
 +  <string name="show_su_icon_summary">Отображать иконку в статусбаре, когда активен Superuser</string>
  </resources>
 diff --git a/res/values-uk/cm_strings.xml b/res/values-uk/cm_strings.xml
-index c23b2a2..e73538d 100644
+index 23c7598..74d8354 100644
 --- a/res/values-uk/cm_strings.xml
 +++ b/res/values-uk/cm_strings.xml
-@@ -141,6 +141,8 @@
+@@ -161,6 +161,8 @@
    <string name="button_wake_summary">Вимикає керування плеєром</string>
    <string name="home_answer_call_title">Відповісти</string>
    <string name="home_answer_call_summary">Відповідати на дзвінок натисканням кнопки «Додому»</string>
 +  <string name="volume_answer_call_title">Відповісти</string>
 +  <string name="volume_answer_call_summary">Відповідати на дзвінок натисканням кнопок гучності</string>
+   <!-- Key backlight -->
    <string name="button_backlight_title">Підсвічування</string>
    <string name="button_backlight_enabled">Підсвічувати кнопки</string>
-   <string name="keyboard_backlight_enabled">Підсвічувати клавіатуру</string>
-@@ -993,4 +995,8 @@
+@@ -1212,4 +1214,8 @@
                   <b>Всього коммітів:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
                   <b>Останнє оновлення:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
    <string name="quick_settings_reset_message">Скинути налаштування плиток?</string>
