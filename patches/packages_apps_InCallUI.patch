@@ -1,0 +1,18 @@
+diff --git a/res/layout/primary_call_info.xml b/res/layout/primary_call_info.xml
+index 71369d4..a060c58 100644
+--- a/res/layout/primary_call_info.xml
++++ b/res/layout/primary_call_info.xml
+@@ -81,11 +81,12 @@
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="-5dp"
++        android:maxWidth="250.0dip"
+         android:fontFamily="sans-serif-light"
+         android:textAlignment="viewStart"
+         android:textAppearance="?android:attr/textAppearanceLarge"
+         android:textSize="@dimen/call_name_text_size"
+-        android:singleLine="true"
++        android:singleLine="false"
+         ex:resizing_text_min_size="@dimen/call_name_text_min_size" />
+ 
+ 
