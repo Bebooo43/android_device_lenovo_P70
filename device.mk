@@ -115,7 +115,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.ssd.rc:root/init.ssd.rc \
     $(LOCAL_PATH)/ramdisk/ss:root/sbin/ss \
     $(LOCAL_PATH)/ramdisk/ueventd.mt6752.rc:root/ueventd.mt6752.rc \
-    $(LOCAL_PATH)/ramdisk/init.performance.rc:root/init.performance.rc
+    $(LOCAL_PATH)/ramdisk/init.mt6752.performance.rc:root/init.mt6752.performance.rc
 
 # Telecom
 PRODUCT_COPY_FILES += \

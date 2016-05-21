@@ -6,7 +6,7 @@ import init.xlog.rc
 import init.ssd.rc
 import init.no_ssd.rc
 import init.ssd_nomuser.rc
-import init.performance.rc
+import init.mt6752.performance.rc
 
 on init
 

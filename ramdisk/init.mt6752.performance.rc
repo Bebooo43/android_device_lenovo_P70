@@ -1,10 +1,10 @@
 # CyanogenMod Performance Profiles
 
 # Powersave
-on property:sys.perf.profile=0
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq "1170000"
+on property:sys.cpu.modes=0
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq "936000"
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq "468000"
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "ondemand"
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
     write /sys/devices/system/cpu/cpu4/online "0"
     write /sys/devices/system/cpu/cpu5/online "0"
     write /sys/devices/system/cpu/cpu6/online "0"
@@ -12,7 +12,7 @@ on property:sys.perf.profile=0
 
 
 # Balanced
-on property:sys.perf.profile=1
+on property:sys.cpu.modes=1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq "1690000"
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq "468000"
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "hotplug"
@@ -22,7 +22,7 @@ on property:sys.perf.profile=1
     write /sys/devices/system/cpu/cpu7/online "1"
 
 # Performance
-on property:sys.perf.profile=2
+on property:sys.cpu.modes=2
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq "1690000"
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq "468000"
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
@@ -31,6 +31,6 @@ on property:sys.perf.profile=2
     write /sys/devices/system/cpu/cpu6/online "1"
     write /sys/devices/system/cpu/cpu7/online "1"
 
-on property:sys.boot_completed=1
+#on property:sys.boot_completed=1
 # Switch to balanced mode after boot for better UX
-    setprop sys.perf.profile 1
+#    setprop sys.cpu.modes 1
