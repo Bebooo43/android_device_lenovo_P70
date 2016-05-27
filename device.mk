@@ -36,6 +36,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Gestures
 
+# iw
+PRODUCT_PACKAGES += \
+    iw
+
 # FM Radio
 #PRODUCT_PACKAGES += \
 #    FMRadio \
