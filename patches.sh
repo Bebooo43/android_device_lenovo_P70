@@ -58,6 +58,15 @@ else
 echo "${red}Не применён!${txtrst}"
 fi
 
+if
+echo "${grn}'packages_apps_Dialer'${txtrst}"
+cat patches/packages_apps_Dialer.patch | patch -d $DSTDIR/packages/apps/Dialer/ -p1 -N -r -
+then
+echo "${grn}Применён успешно!${txtrst}"
+else
+echo "${red}Не применён!${txtrst}"
+fi
+
 cd $DSTDIR
 
 #git diff > x.patch

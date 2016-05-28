@@ -1,3 +1,77 @@
+diff --git a/res/layout/contact_tile_frequent.xml b/res/layout/contact_tile_frequent.xml
+index 8c718fb..dcd11f7 100644
+--- a/res/layout/contact_tile_frequent.xml
++++ b/res/layout/contact_tile_frequent.xml
+@@ -40,7 +40,7 @@
+             android:layout_height="wrap_content"
+             android:textColor="@color/frequent_contact_text_color"
+             android:textSize="@dimen/contact_browser_list_item_text_size"
+-            android:singleLine="true"
++            android:singleLine="false"
+             android:fadingEdge="horizontal"
+             android:fadingEdgeLength="3dip"
+             android:ellipsize="marquee"
+diff --git a/res/layout/contact_tile_frequent_phone.xml b/res/layout/contact_tile_frequent_phone.xml
+index f87dff7..a5cac18 100644
+--- a/res/layout/contact_tile_frequent_phone.xml
++++ b/res/layout/contact_tile_frequent_phone.xml
+@@ -47,7 +47,7 @@
+             android:layout_marginTop="8dip"
+             android:layout_toRightOf="@id/contact_tile_quick"
+             android:layout_toEndOf="@id/contact_tile_quick"
+-            android:singleLine="true"
++            android:singleLine="false"
+             android:fadingEdge="horizontal"
+             android:fadingEdgeLength="3dip"
+             android:ellipsize="marquee"
+diff --git a/res/layout/contact_tile_starred.xml b/res/layout/contact_tile_starred.xml
+index 88aa1e8..31cba75 100644
+--- a/res/layout/contact_tile_starred.xml
++++ b/res/layout/contact_tile_starred.xml
+@@ -45,7 +45,7 @@
+             android:paddingTop="7dp"
+             android:textColor="@color/contact_tile_text_color"
+             android:textSize="@dimen/contact_browser_list_item_text_size"
+-            android:singleLine="true"
++            android:singleLine="false"
+             android:fadingEdge="horizontal"
+             android:fadingEdgeLength="3dip"
+             android:ellipsize="marquee"
+diff --git a/res/layout/contact_tile_starred_quick_contact.xml b/res/layout/contact_tile_starred_quick_contact.xml
+index ecbe583..fbc2574 100644
+--- a/res/layout/contact_tile_starred_quick_contact.xml
++++ b/res/layout/contact_tile_starred_quick_contact.xml
+@@ -49,7 +49,7 @@
+                 android:layout_height="wrap_content"
+                 android:textColor="@android:color/white"
+                 android:textSize="16sp"
+-                android:singleLine="true"
++                android:singleLine="false"
+                 android:fadingEdge="horizontal"
+                 android:fadingEdgeLength="3dip"
+                 android:ellipsize="marquee"
+diff --git a/src/com/android/contacts/common/list/ContactListItemView.java b/src/com/android/contacts/common/list/ContactListItemView.java
+index dd869b0..ec01414 100755
+--- a/src/com/android/contacts/common/list/ContactListItemView.java
++++ b/src/com/android/contacts/common/list/ContactListItemView.java
+@@ -991,7 +991,7 @@ public class ContactListItemView extends ViewGroup
+     public TextView getNameTextView() {
+         if (mNameTextView == null) {
+             mNameTextView = new TextView(getContext());
+-            mNameTextView.setSingleLine(true);
++            mNameTextView.setSingleLine(false);
+             mNameTextView.setEllipsize(getTextEllipsis());
+             mNameTextView.setTextColor(mNameTextViewTextColor);
+             mNameTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+@@ -1002,7 +1002,7 @@ public class ContactListItemView extends ViewGroup
+             mNameTextView.setGravity(Gravity.CENTER_VERTICAL);
+             mNameTextView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
+             mNameTextView.setId(R.id.cliv_name_textview);
+-            mNameTextView.setElegantTextHeight(false);
++            mNameTextView.setElegantTextHeight(true);
+             addView(mNameTextView);
+         }
+         return mNameTextView;
 diff --git a/src/com/android/contacts/common/util/PickupGestureDetector.java b/src/com/android/contacts/common/util/PickupGestureDetector.java
 index 1595d2a..b478aa9 100644
 --- a/src/com/android/contacts/common/util/PickupGestureDetector.java
