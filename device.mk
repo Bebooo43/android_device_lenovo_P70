@@ -41,27 +41,17 @@ PRODUCT_PACKAGES += \
     iw
 
 # FM Radio
-#PRODUCT_PACKAGES += \
-#    FMRadio \
-#    FmRadioTrampoline
-
-# FM Radio
-#PRODUCT_PACKAGES += \
-#    FMRadio \
-#    libfmjni
-
-#    libfmcust \
-#    libfmmt6627 \
-#    libfmmt6630 \
-#    libfmmt6628 \
-#    libfmmt6620
+PRODUCT_PACKAGES += \
+    FmRadio \
+    libfmjni \
+    libfmmt6620 \
+    libfmmt6628 \
+    libfmmt6627 \
+    libfmmt6630 \
+    libfmcust
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/fmr/mt6627_fm_cust.cfg:system/etc/fmr/mt6627_fm_cust.cfg
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/mtk/libmtkplayer/lib/libmtkplayer.so:system/lib/libmtkplayer.so \
-    $(LOCAL_PATH)/mtk/libmtkplayer/lib64/libmtkplayer.so:system/lib64/libmtkplayer.so
 
 # gralloc
 PRODUCT_PACKAGES += \

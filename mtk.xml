@@ -36,7 +36,7 @@
   <!-- <project path="packages/apps/Snap" name="CyanogenMod/android_packages_apps_Snap" /> -->
   <!-- <project path="bootable/recovery" name="omnirom/android_bootable_recovery" revision="android-6.0" />  -->
   <project path="kernel/lenovo/P70" name="Vgdn1942/android_kernel_lenovo_P70" revision="master" />
-  <project path="packages/apps/FMRadio" name="CyanogenMod/android_packages_apps_FMRadio" />
+  <!-- <project path="packages/apps/FMRadio" name="CyanogenMod/android_packages_apps_FMRadio" /> -->
   <!-- vim:set ai et ts=2 sw=2 sts=2 fenc=utf-8: -->
 </manifest>
 

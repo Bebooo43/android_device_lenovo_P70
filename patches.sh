@@ -67,6 +67,15 @@ else
 echo "${red}Не применён!${txtrst}"
 fi
 
+if
+echo "${grn}'frameworks_av.patch'${txtrst}"
+cat patches/frameworks_av.patch | patch -d $DSTDIR/frameworks/av/ -p1 -N -r -
+then
+echo "${grn}Применён успешно!${txtrst}"
+else
+echo "${red}Не применён!${txtrst}"
+fi
+
 cd $DSTDIR
 
 #git diff > x.patch
