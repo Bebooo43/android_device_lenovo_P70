@@ -133,6 +133,65 @@ index 843dc61..d6327e0 100644
           * The current night mode that has been selected by the user.  Owned
           * and controlled by UiModeManagerService.  Constants are as per
           * UiModeManager.
+diff --git a/core/jni/android_media_AudioSystem.cpp b/core/jni/android_media_AudioSystem.cpp
+index fee1ead..5626a15 100644
+--- a/core/jni/android_media_AudioSystem.cpp
++++ b/core/jni/android_media_AudioSystem.cpp
+@@ -1480,7 +1480,43 @@ exit:
+     return jStatus;
+ }
+ 
++static jint
++android_media_AudioSystem_setAudioData(JNIEnv *env, jobject clazz,
++                                       jint jA, jint jB, jbyteArray jArray)
++{
++    ALOGV("setAudioData");
++    if (jArray == NULL || env->GetArrayLength(jArray) == 0) {
++        ALOGE("setAudioData: emply buffer");
++        return (jint)AUDIO_JAVA_BAD_VALUE;
++    }
++
++    jbyte * buffer = env->GetByteArrayElements(jArray, NULL);
++
++    int status = AudioSystem::setAudioData((int)jA, (unsigned long)jB, (char*)buffer);
++
++    env->ReleaseByteArrayElements(jArray, buffer, 0);
++    ALOGV("setAudioData: status %d", status);
++    return (jint)status;
++}
+ 
++static jint
++android_media_AudioSystem_getAudioData(JNIEnv *env, jobject clazz,
++                                       jint jA, jint jB, jbyteArray jArray)
++{
++    ALOGV("getAudioData");
++    if (jArray == NULL || env->GetArrayLength(jArray) == 0) {
++        ALOGE("getAudioData: emply buffer");
++        return (jint)AUDIO_JAVA_BAD_VALUE;
++    }
++
++    jbyte * buffer = env->GetByteArrayElements(jArray, NULL);
++
++    int status = AudioSystem::getAudioData((int)jA, (unsigned long)jB, (char*)buffer);
++
++    env->ReleaseByteArrayElements(jArray, buffer, 0);
++    ALOGV("getAudioData: status %d", status);
++    return (jint)status;
++}
+ 
+ // ----------------------------------------------------------------------------
+ 
+@@ -1525,6 +1561,10 @@ static JNINativeMethod gMethods[] = {
+                                     (void *)android_media_AudioSystem_getAudioHwSyncForSession},
+     {"registerPolicyMixes",    "(Ljava/util/ArrayList;Z)I",
+                                             (void *)android_media_AudioSystem_registerPolicyMixes},
++    {"getAudioData",    "(II[B)I",
++                        (void *)android_media_AudioSystem_getAudioData},
++    {"setAudioData",    "(II[B)I",
++                        (void *)android_media_AudioSystem_setAudioData},
+ 
+ };
+ 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
 index 6ec1c9e..739424d 100755
 --- a/core/res/res/values/config.xml
@@ -176,6 +235,19 @@ index f10ba96..bf4e759 100644
  # key 173 "KEY_REFRESH"
  # key 174 "KEY_EXIT"
  # key 175 "KEY_MOVE"
+diff --git a/media/java/android/media/AudioSystem.java b/media/java/android/media/AudioSystem.java
+index bf79e9a..50b94ae 100644
+--- a/media/java/android/media/AudioSystem.java
++++ b/media/java/android/media/AudioSystem.java
+@@ -604,5 +604,8 @@ public class AudioSystem
+     public static native int getAudioHwSyncForSession(int sessionId);
+ 
+     public static native int registerPolicyMixes(ArrayList<AudioMix> mixes, boolean register);
++
++    public static native int getAudioData(int par, int size, byte[] data);
++    public static native int setAudioData(int par, int size, byte[] data);
+ }
+ 
 diff --git a/media/java/android/media/MediaRecorder.java b/media/java/android/media/MediaRecorder.java
 index aafa07b..bea2ce8 100644
 --- a/media/java/android/media/MediaRecorder.java
@@ -192,6 +264,20 @@ index aafa07b..bea2ce8 100644
           * Audio source for preemptible, low-priority software hotword detection
           * It presents the same gain and pre processing tuning as {@link #VOICE_RECOGNITION}.
           * <p>
+diff --git a/packages/DocumentsUI/res/values-ru/strings.xml b/packages/DocumentsUI/res/values-ru/strings.xml
+index 10de6f0..0044ba0 100644
+--- a/packages/DocumentsUI/res/values-ru/strings.xml
++++ b/packages/DocumentsUI/res/values-ru/strings.xml
+@@ -14,8 +14,7 @@
+      limitations under the License.
+  -->
+ 
+-<resources xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
++<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+     <string name="app_label" msgid="2783841764617238354">"Документы"</string>
+     <string name="title_open" msgid="4353228937663917801">"Открыть"</string>
+     <string name="title_save" msgid="2433679664882857999">"Сохранить"</string>
 diff --git a/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java b/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java
 index 352bfba..c45ea43 100755
 --- a/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java

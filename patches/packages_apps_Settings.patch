@@ -1,8 +1,17 @@
 diff --git a/res/values-ru/cm_strings.xml b/res/values-ru/cm_strings.xml
-index 58726d6..ef25d4c 100644
+index 58726d6..975910a 100644
 --- a/res/values-ru/cm_strings.xml
 +++ b/res/values-ru/cm_strings.xml
-@@ -161,6 +161,8 @@
+@@ -26,6 +26,8 @@
+   <string name="show_dev_on_cm">Настройки для разработчиков включены!</string>
+   <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
+   <string name="show_dev_already_cm">Не нужно, настройки для разработчиков уже включены.</string>
++  <!-- Launch Engineer mode -->
++  <string name="settings_engineermode_title">Инженерное меню</string>
+   <!-- Launch Dev Tools -->
+   <string name="development_tools_title">Инструменты разработки</string>
+   <!-- Setting checkbox title for root access -->
+@@ -161,6 +163,8 @@
    <string name="button_wake_summary">Отключает управление плеером</string>
    <string name="home_answer_call_title">Ответ на звонок</string>
    <string name="home_answer_call_summary">Отвечать на звонок нажатием кнопки «Домой»</string>
@@ -11,7 +20,7 @@ index 58726d6..ef25d4c 100644
    <!-- Key backlight -->
    <string name="button_backlight_title">Подсветка</string>
    <string name="button_backlight_enabled">Подсветка кнопок</string>
-@@ -1214,4 +1216,8 @@
+@@ -1214,4 +1218,8 @@
  <b>Всего коммитов:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
  <b>Последнее обновление:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
    <string name="quick_settings_reset_message">Сбросить настройки плиток?</string>
@@ -21,10 +30,19 @@ index 58726d6..ef25d4c 100644
 +  <string name="show_su_icon_summary">Отображать иконку в статусбаре, когда активен Superuser</string>
  </resources>
 diff --git a/res/values-uk/cm_strings.xml b/res/values-uk/cm_strings.xml
-index 23c7598..74d8354 100644
+index 23c7598..d59f95e 100644
 --- a/res/values-uk/cm_strings.xml
 +++ b/res/values-uk/cm_strings.xml
-@@ -161,6 +161,8 @@
+@@ -26,6 +26,8 @@
+   <string name="show_dev_on_cm">Ви увімкнули налаштування розробника!</string>
+   <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
+   <string name="show_dev_already_cm">Немає необхідності, ви вже увімкнули налаштування для розробників.</string>
++  <!-- Launch Engineer mode -->
++  <string name="settings_engineermode_title">Інженерне меню</string>
+   <!-- Launch Dev Tools -->
+   <string name="development_tools_title">Інструм. розробника</string>
+   <!-- Setting checkbox title for root access -->
+@@ -161,6 +163,8 @@
    <string name="button_wake_summary">Вимикає керування плеєром</string>
    <string name="home_answer_call_title">Відповісти</string>
    <string name="home_answer_call_summary">Відповідати на дзвінок натисканням кнопки «Додому»</string>
@@ -33,7 +51,7 @@ index 23c7598..74d8354 100644
    <!-- Key backlight -->
    <string name="button_backlight_title">Підсвічування</string>
    <string name="button_backlight_enabled">Підсвічувати кнопки</string>
-@@ -1212,4 +1214,8 @@
+@@ -1212,4 +1216,8 @@
                   <b>Всього коммітів:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
                   <b>Останнє оновлення:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
    <string name="quick_settings_reset_message">Скинути налаштування плиток?</string>
@@ -43,10 +61,20 @@ index 23c7598..74d8354 100644
 +  <string name="show_su_icon_summary">Відображати іконку в статусбарі, коли активний Superuser</string>
  </resources>
 diff --git a/res/values/cm_strings.xml b/res/values/cm_strings.xml
-index 7b560ce..10402cf 100644
+index 7b560ce..fc5416d 100644
 --- a/res/values/cm_strings.xml
 +++ b/res/values/cm_strings.xml
-@@ -179,6 +179,10 @@
+@@ -25,6 +25,9 @@
+     <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
+     <string name="show_dev_already_cm">No need, you have already enabled development settings.</string>
+ 
++    <!-- Launch Engineer mode -->
++    <string name="settings_engineermode_title">Engineer mode</string>
++
+     <!-- Launch Dev Tools -->
+     <string name="development_tools_title">Development tools</string>
+ 
+@@ -179,6 +182,10 @@
      <string name="home_answer_call_title">Answer call</string>
      <string name="home_answer_call_summary">Pressing the home button will answer the current incoming call</string>
  
@@ -57,7 +85,7 @@ index 7b560ce..10402cf 100644
      <!-- Key backlight -->
      <string name="button_backlight_title">Backlight</string>
      <string name="button_backlight_enabled">Illuminate buttons</string>
-@@ -1418,4 +1422,8 @@
+@@ -1418,4 +1425,8 @@
                   <b>Last update:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
  
      <string name="quick_settings_reset_message">Reset quick settings tiles?</string>
@@ -83,6 +111,26 @@ index 6acffc3..a20367a 100644
          <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
              android:key="volbtn_music_controls"
              android:title="@string/volbtn_music_controls_title"
+diff --git a/res/xml/development_prefs.xml b/res/xml/development_prefs.xml
+index d00087d..58869d1 100644
+--- a/res/xml/development_prefs.xml
++++ b/res/xml/development_prefs.xml
+@@ -18,6 +18,15 @@
+         android:title="@string/development_settings_title">
+ 
+     <PreferenceScreen
++            android:title="@string/settings_engineermode_title"
++            android:persistent="false">
++        <intent
++                android:action="android.intent.action.MAIN"
++                android:targetPackage="com.mediatek.engineermode"
++                android:targetClass="com.mediatek.engineermode.EngineerMode" />
++    </PreferenceScreen>
++
++    <PreferenceScreen
+             android:key="development_tools"
+             android:title="@string/development_tools_title"
+             android:persistent="false" >
 diff --git a/res/xml/status_bar_settings.xml b/res/xml/status_bar_settings.xml
 index d497606..e196fec 100644
 --- a/res/xml/status_bar_settings.xml

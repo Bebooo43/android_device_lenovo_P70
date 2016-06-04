@@ -2,7 +2,7 @@
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
-$(call inherit-product, vendor/lenovo/P70/P70-vendor-blobs.mk)
+$(call inherit-product, vendor/lenovo/P70/P70-vendor.mk)
 
 LOCAL_PATH := device/lenovo/P70
 
@@ -42,7 +42,7 @@ PRODUCT_PACKAGES += \
 
 # FM Radio
 PRODUCT_PACKAGES += \
-    FmRadio \
+    FMRadio \
     libfmjni \
     libfmmt6620 \
     libfmmt6628 \
