@@ -16,6 +16,19 @@ index 71369d4..a060c58 100644
          ex:resizing_text_min_size="@dimen/call_name_text_min_size" />
  
  
+diff --git a/res/values/colors.xml b/res/values/colors.xml
+index afc557b..a2e89a1 100644
+--- a/res/values/colors.xml
++++ b/res/values/colors.xml
+@@ -63,7 +63,7 @@
+     <color name="translucent_shadow">#33999999</color>
+ 
+     <!-- 70% opacity, black. -->
+-    <color name="glowpad_background_color">#b3000000</color>
++    <color name="glowpad_background_color">#00000000</color>
+     <!-- 15% opacity, white. -->
+     <color name="glowpad_outer_ring_color">#26ffffff</color>
+     <color name="glowpad_text_widget_ring_color">#ffffff</color>
 diff --git a/src/com/android/incallui/ProximitySensor.java b/src/com/android/incallui/ProximitySensor.java
 index ed3dfee..90b195a 100644
 --- a/src/com/android/incallui/ProximitySensor.java
