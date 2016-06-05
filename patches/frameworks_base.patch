@@ -235,6 +235,31 @@ index f10ba96..bf4e759 100644
  # key 173 "KEY_REFRESH"
  # key 174 "KEY_EXIT"
  # key 175 "KEY_MOVE"
+diff --git a/media/java/android/media/AudioService.java b/media/java/android/media/AudioService.java
+index 41dc270..6076bc7 100644
+--- a/media/java/android/media/AudioService.java
++++ b/media/java/android/media/AudioService.java
+@@ -274,14 +274,14 @@ public class AudioService extends IAudioService.Stub {
+ 
+    /** @hide Maximum volume index values for audio streams */
+     private static int[] MAX_STREAM_VOLUME = new int[] {
+-        5,  // STREAM_VOICE_CALL
+-        7,  // STREAM_SYSTEM
+-        7,  // STREAM_RING
++        15, // STREAM_VOICE_CALL
++        15, // STREAM_SYSTEM
++        15, // STREAM_RING
+         15, // STREAM_MUSIC
+-        7,  // STREAM_ALARM
+-        7,  // STREAM_NOTIFICATION
++        15, // STREAM_ALARM
++        15, // STREAM_NOTIFICATION
+         15, // STREAM_BLUETOOTH_SCO
+-        7,  // STREAM_SYSTEM_ENFORCED
++        15, // STREAM_SYSTEM_ENFORCED
+         15, // STREAM_DTMF
+         15  // STREAM_TTS
+     };
 diff --git a/media/java/android/media/AudioSystem.java b/media/java/android/media/AudioSystem.java
 index bf79e9a..50b94ae 100644
 --- a/media/java/android/media/AudioSystem.java
